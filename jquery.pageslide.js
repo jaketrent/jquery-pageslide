@@ -7,7 +7,8 @@
 		    duration:       "normal", // Accepts standard jQuery effects speeds (i.e. fast, normal or milliseconds)
 		    direction:      "left", // default direction is left.
 		    modal:          false, // if true, the only way to close the pageslide is to define an explicit close class. 
-		    _identifier: $(this)
+		    _identifier: $(this),
+		    preprocessor: function(){}
 		}, options);
 		
 		// these are the minimum css requirements for the pageslide elements introduced in this plugin.
@@ -144,6 +145,7 @@
     _initialize(this);
     return this.each(function(){
       $(this).unbind("click").bind("click", function(){
+        settings.preprocessor()
       	function _checkA(elm) { for (; elm != null; elm = elm.parentElement) { if (elm.tagName == 'A') return true; } return false; }
     	  _openSlide(this);
     	  $("#pageslide-slide-wrap").unbind('click').click(function(e){ if(! _checkA(e.target)) return false; });	  
