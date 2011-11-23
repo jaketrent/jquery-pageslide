@@ -91,7 +91,17 @@
 		  }
     	$("#pageslide-slide-wrap").animate({width: settings.width}, settings.duration);
 		  $("#pageslide-body-wrap").animate(direction, settings.duration, function() {
-	      $.ajax({
+        if ($(elm).attr("data-el") !== undefined) {
+          var $psContent = $("#pageslide-content");
+          $psContent.css("width",settings.width).html($($(elm).attr("data-el")).html());
+
+          // add hook for a close button
+          $psContent.find('.pageslide-close').unbind('click').click(function(elm){
+            _closeSlide(elm);
+            $(this).find('pageslide-close').unbind('click');
+          });
+        } else {
+	        $.ajax({
   		      type: "GET",
   		      url: $(elm).attr("href"),
   		      success: function(data){
@@ -105,11 +115,12 @@
   		              $(this).find('pageslide-close').unbind('click');
   		            });
 			
-			    //Callback for initializations
-			    settings.callback();
+                  //Callback for initializations
+                  settings.callback();
   		          });
   		      }
   		    });
+        }
 		  });
 		};
 		

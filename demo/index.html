@@ -20,12 +20,21 @@
           <li><a href="_left.html" id="slide-left">PageSlide from the left</a></li>
           <li><a href="_right.html" id="slide-right">PageSlide from the right</a></li>
           <li><a href="_modal.html" id="slide-modal">PageSlide as a modal element</a></li>
+          <li><a href="#" data-el="#onpage" id="slide-onpage">PageSlide for on-page content</a></li>
         </ul>
       </div>
+    <div id="onpage" class="onpage">
+      <div id="secondary">
+        <h2>Hello There!</h2>
+        <p>This is an example of on-page content.</p>
+        <p>It would look funny if I didn't put a bunch of text in here, so I'm typing nonsense. That's right, if you're reading this then you're just reading nonesense, or if you're on the other side of The Big Pond, then I might be inclined to say that you're reading poppycock.</p>
+      </div>
+    </div>
   </body>
   <script type="text/javascript">
     $("#slide-left").pageSlide({ width: "350px", direction: "left" });
     $("#slide-right").pageSlide({ width: "350px", direction: "right" });
     $("#slide-modal").pageSlide({ width: "350px", direction: "left", modal: true });
+    $("#slide-onpage").pageSlide({ width: "350px", direction: "left" });
   </script>
 </html>
