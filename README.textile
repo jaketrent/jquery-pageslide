@@ -91,6 +91,29 @@ modal:          false, // if true, the only way to close the pageslide is to def
 }, options);
 </code></pre>
 
+h3. Want on-page content instead of ajax'ing in another page?
+
+Put content in the page from which you're calling pageSlide():
+
+<pre>
+<code>
+<!-- ... other markup ... -->
+<div id="onpage">
+  Stuff to appear in page slider
+</div>
+</code>
+</pre>
+
+And put a data-el attribute on the link that has pageSlide() bindings with the jQuery selector that will find your content:
+
+<pre>
+<code>
+<!-- ... other markup ... -->
+<a href="#" data-el="#onpage">See on-page stuff</a>
+</code>
+</pre>
+
+
 h2. I found a BUG! or I want it to do THIS!
 
 Please file a ticket and attempt to contribute a patch!
